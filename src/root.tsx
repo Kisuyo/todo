@@ -21,6 +21,7 @@ function GlobalStyles() {
       body {
         font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
           "Helvetica Neue", sans-serif;
+        /* background-color: red; */
       }
 
       a {

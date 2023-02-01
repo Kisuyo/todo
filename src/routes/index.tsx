@@ -1,8 +1,8 @@
 import { Title } from "solid-start"
+import { css } from "solid-styled"
 // import styled, { css } from "styled-components"
 import { createClient } from "@supabase/supabase-js"
 import { createEffect, createSignal, onMount } from "solid-js"
-import { css } from "solid-styled"
 
 const supabase = createClient(
   "https://pitnxbieegmcccziqtpw.supabase.co",
@@ -21,17 +21,28 @@ export default function Home() {
       setTodos(data)
     }
   })
+
   css`
-    SubmitButton {
-      color: blue;
+    .NoteWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .Input {
+    }
+    main {
+      /* background-color: red; */
+      height: 100vh;
     }
   `
+
   return (
-    <main>
-      <div>
+    <main class="Main">
+      <div class="MainWrapper">
         <div></div>
-        <div>
+        <div class="NoteWrapper">
           <input
+            class="Input"
             id="note"
             type="text"
             onChange={(e) => setInput(e.currentTarget.value)}
