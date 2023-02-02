@@ -6,7 +6,7 @@ import { createEffect, createSignal, onMount } from "solid-js"
 
 const supabase = createClient(
   "https://pitnxbieegmcccziqtpw.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBpdG54YmllZWdtY2NjemlxdHB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzQ2NDk4MjAsImV4cCI6MTk5MDIyNTgyMH0.O-p3_Ghd9szTGnncSuWapQt5nbN3g3soRNUjpvlnRv8"
+  import.meta.env.VITE_SUPABASE_CLIENT_ID
 )
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
     .Input {
     }
     main {
-      /* background-color: red; */
+      background-color: red;
       height: 100vh;
     }
   `
@@ -39,34 +39,58 @@ export default function Home() {
   return (
     <main class="Main">
       <div class="MainWrapper">
-        <div></div>
-        <div class="NoteWrapper">
-          <input
-            class="Input"
-            id="note"
-            type="text"
-            onChange={(e) => setInput(e.currentTarget.value)}
-          />
-          <button
-            class="SubmitButton"
-            onClick={async () => {
-              const { error } = await supabase
-                .from("todos")
-                .insert({ Note: input() })
-              setTodos([...todos()])
-              if (error) {
-                console.log(error)
-              }
-            }}
-          >
-            Submit
-          </button>
+        <div class="Wrapper">
+          <div class="NoteWrapper">
+            <div class="InputWrapper">
+              <input
+                class="Input"
+                id="note"
+                type="text"
+                onChange={(e) => setInput(e.currentTarget.value)}
+              />
+              <button
+                class="SubmitButton"
+                onClick={async () => {
+                  const { error } = await supabase
+                    .from("todos")
+                    .insert({ Note: input() })
+                  setTodos([...todos()])
+                  if (error) {
+                    console.log(error)
+                  }
+                }}
+              >
+                Submit
+              </button>
+            </div>
+            <div class="DataWrapper">
+              {todos().map((todo) => {
+                if (todo.Note !== null) {
+                  return (
+                    <div class="DataAndButton">
+                      <div class="Data">{todo.Note}</div>
+                      <button
+                        class="DataButton"
+                        onClick={async () => {
+                          const { error } = await supabase
+                            .from("todos")
+                            .delete()
+                            .eq("id", 1)
 
-          {todos().map((todo) => {
-            if (todo.Note !== null) {
-              return <div>{todo.Note}</div>
-            }
-          })}
+                          // setTodos([...todos()])
+                          if (error) {
+                            console.log(error)
+                          }
+                        }}
+                      >
+                        <img src="x.svg" alt="X" class="XImage" />
+                      </button>
+                    </div>
+                  )
+                }
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </main>

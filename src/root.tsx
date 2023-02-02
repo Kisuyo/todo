@@ -22,6 +22,8 @@ function GlobalStyles() {
         font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
           "Helvetica Neue", sans-serif;
         /* background-color: red; */
+        padding: 0px;
+        margin: 0;
       }
 
       a {
@@ -29,9 +31,9 @@ function GlobalStyles() {
       }
 
       main {
-        text-align: center;
+        /* text-align: center;
         padding: 1em;
-        margin: 0 auto;
+        margin: 0 auto; */
       }
 
       h1 {
@@ -58,6 +60,77 @@ function GlobalStyles() {
         p {
           max-width: none;
         }
+      }
+      /* .Main {
+        height: 100vh;
+      }
+      .MainWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      } */
+      .Wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .NoteWrapper {
+        width: 600px;
+        /* margin-bottom: 200px; */
+      }
+      .DataWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .InputWrapper {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+      .Input {
+        width: 400px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 40px;
+      }
+      .SubmitButton {
+        width: 80px;
+        height: 80px;
+        border-radius: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: #63ff6355;
+      }
+      .Data {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        border-radius: 40px;
+      }
+      .DataAndButton {
+        display: flex;
+        gap: 30px;
+      }
+      .DataButton {
+        width: 80px;
+        height: 80px;
+        border-radius: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: #ff464666;
+        opacity: 90%;
+      }
+      .DataButton:hover {
+        opacity: 60%;
+      }
+      .XImage {
+        /* display: flex;
+        justify-content: center;
+        margin: 0; */
       }
     }
   `
