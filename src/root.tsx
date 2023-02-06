@@ -24,6 +24,7 @@ function GlobalStyles() {
         /* background-color: red; */
         padding: 0px;
         margin: 0;
+        background-color: #dbdaf2;
       }
 
       a {
@@ -51,6 +52,9 @@ function GlobalStyles() {
         margin: 2rem auto;
         line-height: 1.35;
       }
+      [contenteditable] {
+  outline: none;
+}
 
       @media (min-width: 480px) {
         h1 {
@@ -82,7 +86,6 @@ function GlobalStyles() {
       }
       .DataWrapper {
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: 30px;
@@ -94,23 +97,82 @@ function GlobalStyles() {
         margin-bottom: 30px;
       }
       .Input {
+        appearance: none;
         width: 400px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 4px solid rgba(34, 10, 38, 50%);
         padding: 20px;
         border-radius: 40px;
+        background-color: #f8e4ff;
+        opacity: 65%;
+        outline: none;
       }
       .SubmitButton {
         width: 80px;
         height: 80px;
         border-radius: 100px;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        background-color: #63ff6355;
+        border: 2px solid rgba(34, 10, 38, 50%);
+        /* background-color: #63ff6355; */
+        background-color: #f8e4ff;
+        opacity: 80%;
+      }
+      .SubmitButton:hover {
+        opacity: 80%;
       }
       .Data {
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 4px solid rgba(0, 0, 0, 50%);
         padding: 20px;
         width: 300px;
         border-radius: 40px;
+        display: flex;
+        justify-content: start;
+        /* padding-left: 25px; */
+        align-items: center;
+        background-color: #DEE5FF;
+        opacity: 65%
+        border: 2px solid rgba(8, 21, 39, 50%)
+        outline: none;
+        
+      }
+      .Data {
+        border: 4px solid rgba(0, 0, 0, 50%);
+        padding: 20px;
+        width: 300px;
+        border-radius: 40px;
+        display: flex;
+        justify-content: start;
+        /* padding-left: 25px; */
+        align-items: center;
+        background-color: #DEE5FF;
+        opacity: 65%
+        border: 2px solid rgba(8, 21, 39, 50%)
+        outline: none;
+        
+      }
+      .DataExtended {
+        border: 4px solid rgba(0, 0, 0, 50%);
+        padding: 20px;
+        width: 300px;
+        border-radius: 40px;
+        display: flex;
+        justify-content: start;
+        /* padding-left: 25px; */
+        align-items: center;
+        background-color: #DEE5FF;
+        opacity: 65%
+        border: 2px solid rgba(8, 21, 39, 50%)
+        outline: none;
+        
+      }
+      .DataText {
+        white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size: 18px;
+      }
+      .DataTextExtended {
+        overflow:hidden;
+  text-overflow:ellipsis;
+  font-size: 18px;
       }
       .DataAndButton {
         display: flex;
@@ -120,17 +182,35 @@ function GlobalStyles() {
         width: 80px;
         height: 80px;
         border-radius: 100px;
-        border: 1px solid rgba(0, 0, 0, 0.3);
+        border: 4px solid rgba(8, 21, 39, 50%)
         background-color: #ff464666;
-        opacity: 90%;
+        /* opacity: 90%; */
+        background-color: #DEE5FF;
+        opacity: 65%
+        
       }
       .DataButton:hover {
-        opacity: 60%;
+        opacity: 50%;
       }
       .XImage {
         /* display: flex;
         justify-content: center;
         margin: 0; */
+      }
+      .CheckImage {
+        opacity: 60%;
+      }
+      .Title {
+        font-size: 124px;
+        color: #F5DFFF;
+        -webkit-text-stroke: 2px rgba(45, 15, 55, 50%);
+        font-family: 'Krub';
+        font-weight: bold;
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        margin-right: 100px;
+        margin-bottom: 25px;
       }
     }
   `
