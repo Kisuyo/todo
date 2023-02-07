@@ -213,6 +213,9 @@ function GlobalStyles() {
         margin-bottom: 25px;
       }
     }
+    /* #70 {
+      display: none;
+    } */
   `
   return null
 }

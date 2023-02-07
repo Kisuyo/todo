@@ -16,26 +16,25 @@ interface Todo {
 }
 
 export default function Home() {
-  const [todos, setTodos] = createSignal<string[]>([])
+  const [todos, setTodos]: any = createSignal([])
   const [input, setInput] = createSignal("")
   const [extension, setExtension] = createSignal(false)
-  const [id, setId] = createSignal<number[]>([])
+  const [note, setNote] = createSignal<string[]>([])
 
   // when first loading, go get todos
   createEffect(async () => {
     const { data, error } = await supabase.from("todos").select()
     if (todos !== null) {
-      let todos: string[] = []
+      let note: string[] = []
       let id: number[] = []
       data?.map((todo: Todo) => {
-        todos.push(todo.Note)
-        id.push(todo.id)
+        note.push(todo.Note)
+        // id.push(todo.id)
       })
-      setTodos(todos)
-      setId(id)
+      setTodos(data)
+      setNote(note)
     }
   })
-  console.log(id())
   css`
     .NoteWrapper {
       display: flex;
@@ -75,7 +74,7 @@ export default function Home() {
                     .from("todos")
                     .insert({ Note: input() })
 
-                  setTodos([...todos(), input()])
+                  setNote([...note(), input()])
                   if (error) {
                     console.log(error)
                   }
@@ -85,23 +84,33 @@ export default function Home() {
               </button>
             </div>
             <div class="DataWrapper">
-              {todos().map((todo) => {
+              {note().map((todo) => {
+                let idForCss
+
+                todos().map((id) => {
+                  if (id.Note === todo) {
+                    idForCss = id.id
+                    // console.log(idForCss, "Css ID")
+                  }
+                })
+                // console.log(idForCss, "Outside the map")
                 if (todo !== "") {
                   return (
                     <div class="DataAndButton">
                       <div
                         class={extension() ? "DataExtended" : "Data"}
-                        onClick={() => {
+                        onClick={(e) => {
                           if (extension() === true) {
                             setExtension(false)
                           } else {
                             setExtension(true)
                           }
+                          console.log(e.target.id)
                         }}
                       >
                         <div
                           class={extension() ? "DataTextExtended" : "DataText"}
-                          id=""
+                          id={idForCss}
                         >
                           {todo}
                         </div>
@@ -114,7 +123,7 @@ export default function Home() {
                             .delete()
                             .match({ Note: todo })
 
-                          setTodos(todos().filter((t) => t !== todo))
+                          setNote(note().filter((t) => t !== todo))
                           if (error) {
                             console.log(error)
                           }
