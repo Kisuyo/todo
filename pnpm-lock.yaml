@@ -4,16 +4,18 @@ specifiers:
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.7.0
   '@supabase/supabase-js': ^2.5.0
+  '@types/styled-components': ^5.1.26
   babel-plugin-solid-styled: ^0.6.3
   prisma: ^4.9.0
   solid-js: ^1.6.9
   solid-start: ^0.2.15
   solid-start-node: ^0.2.15
-  solid-styled: ^0.7.4
+  solid-styled: ^0.7.5
   styled-components: ^5.3.6
   typescript: ^4.9.4
   undici: ^5.15.1
   vite: ^3.2.5
+  vite-plugin-solid-styled: ^0.7.5
 
 dependencies:
   '@solidjs/meta': 0.28.2_solid-js@1.6.9
@@ -24,8 +26,10 @@ dependencies:
   solid-styled: 0.7.5_3qgza6kmmnz4kp2k2nuuudjnzy
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
   undici: 5.16.0
+  vite-plugin-solid-styled: 0.7.5_5sbsxieawz6kqusdukyawo5tku
 
 devDependencies:
+  '@types/styled-components': 5.1.26
   babel-plugin-solid-styled: 0.6.3_@babel+core@7.20.12
   prisma: 4.9.0
   solid-start-node: 0.2.17_igohwlgqfgnds36yf5syn4lnpm
@@ -1430,6 +1434,13 @@ packages:
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
 
+  /@types/hoist-non-react-statics/3.3.1:
+    resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
+    dependencies:
+      '@types/react': 18.0.27
+      hoist-non-react-statics: 3.3.2
+    dev: true
+
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
@@ -1438,10 +1449,34 @@ packages:
     resolution: {integrity: sha512-L5eZmzw89eXBKkiqVBcJfU1QGx9y+wurRIEgt0cuLH0hwNtVUxtx+6cu0R2STwWj468sjXyBYPYDtGclUd1kjQ==}
     dev: false
 
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react/18.0.27:
+    resolution: {integrity: sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
+    dev: true
+
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
       '@types/node': 18.11.18
+    dev: true
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
+
+  /@types/styled-components/5.1.26:
+    resolution: {integrity: sha512-KuKJ9Z6xb93uJiIyxo/+ksS7yLjS1KzG6iv5i78dhVg/X3u5t1H7juRWqVmodIdz6wGVaIApo1u01kmFRdJHVw==}
+    dependencies:
+      '@types/hoist-non-react-statics': 3.3.1
+      '@types/react': 18.0.27
+      csstype: 3.1.1
     dev: true
 
   /accepts/1.3.8:
@@ -2397,7 +2432,6 @@ packages:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
       react-is: 16.13.1
-    dev: false
 
   /html-entities/2.3.3:
     resolution: {integrity: sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==}
@@ -2725,7 +2759,6 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: false
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
@@ -3206,6 +3239,23 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
+
+  /vite-plugin-solid-styled/0.7.5_5sbsxieawz6kqusdukyawo5tku:
+    resolution: {integrity: sha512-L7GYfx+Dhl+UiVLjMVh9gbcoF/BreB++eJ/cP2nWOezQOGpsWuT5+c48GYz3RcaFZNzWjNb6x3MvASWGXKaIkQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      solid-styled: '>=0.7'
+      vite: ^3 || ^4
+    dependencies:
+      '@babel/core': 7.20.12
+      '@babel/preset-typescript': 7.18.6_@babel+core@7.20.12
+      '@rollup/pluginutils': 5.0.2_rollup@3.12.0
+      solid-styled: 0.7.5_3qgza6kmmnz4kp2k2nuuudjnzy
+      vite: 3.2.5
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
 
   /vite-plugin-solid/2.5.0_solid-js@1.6.9+vite@3.2.5:
     resolution: {integrity: sha512-VneGd3RyFJvwaiffsqgymeMaofn0IzQLPwDzafTV2f1agoWeeJlk5VrI5WqT9BTtLe69vNNbCJWqLhHr9fOdDw==}

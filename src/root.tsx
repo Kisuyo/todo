@@ -65,32 +65,24 @@ function GlobalStyles() {
           max-width: none;
         }
       }
-      /* .Main {
-        height: 100vh;
-      }
-      .MainWrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      } */
-      .Wrapper {
+      .TodosPage {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         height: 100vh;
       }
-      .NoteWrapper {
+      .TodosContainer {
         width: 600px;
         /* margin-bottom: 200px; */
       }
-      .DataWrapper {
+      .TodosList {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 30px;
       }
-      .InputWrapper {
+      .InputContainer {
         display: flex;
         justify-content: center;
         gap: 30px;
@@ -106,7 +98,7 @@ function GlobalStyles() {
         opacity: 65%;
         outline: none;
       }
-      .SubmitButton {
+      .TodoSubmit {
         width: 80px;
         height: 80px;
         border-radius: 100px;
@@ -118,7 +110,7 @@ function GlobalStyles() {
       .SubmitButton:hover {
         opacity: 80%;
       }
-      .Data {
+      .TodoInput {
         border: 4px solid rgba(0, 0, 0, 50%);
         padding: 20px;
         width: 300px;
@@ -131,7 +123,7 @@ function GlobalStyles() {
         opacity: 65%
         border: 2px solid rgba(8, 21, 39, 50%)
         outline: none;
-        
+
       }
       .Data {
         border: 4px solid rgba(0, 0, 0, 50%);
@@ -146,9 +138,9 @@ function GlobalStyles() {
         opacity: 65%
         border: 2px solid rgba(8, 21, 39, 50%)
         outline: none;
-        
+
       }
-      .DataExtended {
+      .TodoInputExpanded {
         border: 4px solid rgba(0, 0, 0, 50%);
         padding: 20px;
         width: 300px;
@@ -161,24 +153,23 @@ function GlobalStyles() {
         opacity: 65%
         border: 2px solid rgba(8, 21, 39, 50%)
         outline: none;
-        
       }
-      .DataText {
+      .TodoInputContent {
         white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
   font-size: 18px;
       }
-      .DataTextExtended {
+      .TodoInputContentExpanded {
         overflow:hidden;
   text-overflow:ellipsis;
   font-size: 18px;
       }
-      .DataAndButton {
+      .Todo {
         display: flex;
         gap: 30px;
       }
-      .DataButton {
+      .DeleteTodoButton {
         width: 80px;
         height: 80px;
         border-radius: 100px;
@@ -187,9 +178,9 @@ function GlobalStyles() {
         /* opacity: 90%; */
         background-color: #DEE5FF;
         opacity: 65%
-        
+
       }
-      .DataButton:hover {
+      .DeleteTodoButton:hover {
         opacity: 50%;
       }
       .XImage {
@@ -231,6 +222,12 @@ export default function Root() {
           <Title>SolidStart - Bare</Title>
           <Meta charset="utf-8" />
           <Meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Krub:wght@700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <Body>
           <GlobalStyles />
