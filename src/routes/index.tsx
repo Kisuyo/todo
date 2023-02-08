@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js"
 import { createEffect, createSignal } from "solid-js"
+import SearchBar from "~/components/searchBar"
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -8,8 +9,8 @@ const supabase = createClient(
 
 interface Todo {
   id: number
-  Note: string
-  Confirmation: boolean
+  name: string
+  done: boolean
 }
 
 export default function Home() {
@@ -31,36 +32,18 @@ export default function Home() {
   return (
     <>
       <div class="TodosPage">
-        <div class="Title">Todoist</div>
-        <div class="TodosContainer">
-          <div class="InputContainer">
-            <input
-              class="Input"
-              id="note"
-              type="text"
-              onChange={(e) => setInput(e.currentTarget.value)}
-            />
-            <button
-              class="TodoSubmit"
-              onClick={async () => {
-                const resp = await supabase
-                  .from("todos")
-                  .insert({ Note: input() })
-                  .select()
-                if (resp?.data) {
-                  setTodos([...todos(), resp.data[0]])
-                }
-              }}
-            >
-              <img src="check.svg" alt="check mark" class="CheckImage" />
-            </button>
-          </div>
-          <div class="TodosList">
+        <div class="TitleContainer">
+          <div class="Title">Todoist</div>
+        </div>
+        <div class="HamburgerMenu">
+          <div class="HamburgerIcon">|||</div>
+          <SearchBar placeholder="Search" data={todos()} />
+          {/* <div class="TodosList">
             {todos().map((todo) => {
-              if (todo.Note !== "") {
+              if (todo.name !== "") {
                 return (
                   <div class="Todo">
-                    <span>{todo.Note}</span>
+                    <span class="TodoContent">{todo.name}</span>
                     <button
                       class="DeleteTodoButton"
                       onClick={async () => {
@@ -80,8 +63,34 @@ export default function Home() {
                 )
               }
             })}
-          </div>
+          </div> */}
         </div>
+        {/* <div class="Title">Todoist</div>
+
+        <div class="TodosContainer">
+          <div class="InputContainer">
+            <input
+              class="Input"
+              id="note"
+              type="text"
+              onChange={(e) => setInput(e.currentTarget.value)}
+            />
+            <button
+              class="TodoSubmit"
+              onClick={async () => {
+                const resp = await supabase
+                  .from("todos")
+                  .insert({ name: input() })
+                  .select()
+                if (resp?.data) {
+                  setTodos([...todos(), resp.data[0]])
+                }
+              }}
+            >
+              <img src="check.svg" alt="check mark" class="CheckImage" />
+            </button>
+          </div>
+        </div> */}
       </div>
     </>
   )

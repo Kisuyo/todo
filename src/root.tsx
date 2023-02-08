@@ -67,10 +67,13 @@ function GlobalStyles() {
       }
       .TodosPage {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        flex-direction: row-reverse;
+        justify-content: space-between;
         height: 100vh;
+      }
+      .TitleContainer {
+        margin-right: 500px;
+        margin-top: 400px;
       }
       .TodosContainer {
         width: 600px;
@@ -107,8 +110,8 @@ function GlobalStyles() {
         background-color: #f8e4ff;
         opacity: 80%;
       }
-      .SubmitButton:hover {
-        opacity: 80%;
+      .TodoSubmit:hover {
+        opacity: 50%;
       }
       .TodoInput {
         border: 4px solid rgba(0, 0, 0, 50%);
@@ -125,7 +128,7 @@ function GlobalStyles() {
         outline: none;
 
       }
-      .Data {
+      .TodoContent {
         border: 4px solid rgba(0, 0, 0, 50%);
         padding: 20px;
         width: 300px;
@@ -192,7 +195,7 @@ function GlobalStyles() {
         opacity: 60%;
       }
       .Title {
-        font-size: 124px;
+        font-size: 184px;
         color: #F5DFFF;
         -webkit-text-stroke: 2px rgba(45, 15, 55, 50%);
         font-family: 'Krub';
@@ -203,10 +206,53 @@ function GlobalStyles() {
         margin-right: 100px;
         margin-bottom: 25px;
       }
+      .HamburgerMenu {
+        background-color: #c9a5c979;
+        width: 20%;
+        height: 100vh;
+      }
+      .HamburgerIcon {
+        padding: 40px;
+        border-bottom: 2px solid white;
+      }
+      .SearchBarContainer {
+        margin: 40px;
+      }
+      .SearchInputContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border-radius: 5px;
+      }
+      .SearchInput {
+        background-color: white;
+     border: 0;
+    font-size: 18px;
+    padding: 15px;
+    width: 200px; 
+    border-radius: 5px;
+      }
+      .SearchInput:focus {
+        outline: none;
+      }
+      .SearchIcon {
+        padding: 15px;
+      }
+      .SearchResults {
+        display: grid;
+        background-color: white;
+        overflow: hidden;
+        margin-top: 20px;
+        
+      }
+      .SearchResult {
+        padding: 20px;
+        margin-top: 5px;
+
+      }
     }
-    /* #70 {
-      display: none;
-    } */
+
   `
   return null
 }
