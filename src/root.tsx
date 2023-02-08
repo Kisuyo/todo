@@ -230,7 +230,7 @@ function GlobalStyles() {
      border: 0;
     font-size: 18px;
     padding: 15px;
-    width: 200px; 
+    width: 200px;
     border-radius: 5px;
       }
       .SearchInput:focus {
@@ -244,7 +244,7 @@ function GlobalStyles() {
         background-color: white;
         overflow: hidden;
         margin-top: 20px;
-        
+
       }
       .SearchResult {
         padding: 20px;

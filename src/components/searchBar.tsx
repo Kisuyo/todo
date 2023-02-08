@@ -1,16 +1,29 @@
-import { createClient } from "@supabase/supabase-js"
-import { createEffect, createSignal } from "solid-js"
+import { createSignal } from "solid-js"
+import { Todo } from "~/routes"
 
-export default function SearchBar({ placeholder, data }) {
-  const [filteredTodos, setFilteredTodos] = createSignal([])
-  //   console.log(data)
+interface Props {
+  placeholder: string
+  todos: Todo[]
+  setShowTodoDetails: (value: boolean) => void
+}
+
+export default function SearchBar({
+  placeholder,
+  todos,
+  setShowTodoDetails,
+}: Props) {
+  const [filteredTodos, setFilteredTodos] = createSignal(todos)
+  console.log(todos, "todos")
+
   const handleFilter = (event) => {
-    const searchedWord = event.target.value
-    const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(searchedWord.toLowerCase())
+    const input = event.target.value
+    const filteredTodos = todos.filter((todo) => {
+      return todo.name.toLowerCase().includes(input.toLowerCase())
     })
-    setFilteredTodos(newFilter)
+    console.log(filteredTodos, "filteredTodos")
+    setFilteredTodos(filteredTodos)
   }
+
   return (
     <>
       <div class="SearchBarContainer">
@@ -19,7 +32,7 @@ export default function SearchBar({ placeholder, data }) {
             class="SearchInput"
             type="text"
             placeholder={placeholder}
-            onChange={handleFilter}
+            onInput={handleFilter}
           />
           <div class="SearchIcon">Icon</div>
         </div>
@@ -27,7 +40,16 @@ export default function SearchBar({ placeholder, data }) {
           <div class="SearchResults">
             {filteredTodos().map((value) => {
               //@ts-ignore
-              return <div class="SearchResult">{value.name}</div>
+              return (
+                <div
+                  onClick={() => {
+                    setShowTodoDetails(true)
+                  }}
+                  class="SearchResult"
+                >
+                  {value.name}
+                </div>
+              )
             })}
           </div>
         )}

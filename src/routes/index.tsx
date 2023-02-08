@@ -7,7 +7,7 @@ const supabase = createClient(
   import.meta.env.VITE_SUPABASE_CLIENT_ID
 )
 
-interface Todo {
+export interface Todo {
   id: number
   name: string
   done: boolean
@@ -16,6 +16,7 @@ interface Todo {
 export default function Home() {
   const [todos, setTodos] = createSignal<Todo[]>([])
   const [input, setInput] = createSignal("")
+  const [showTodoDetails, setShowTodoDetails] = createSignal(false)
 
   // const [expandedTodoInput, setExpandedTodoInput] = createSignal<number>(0)
   // const [note, setNote] = createSignal<string[]>([])
@@ -37,7 +38,13 @@ export default function Home() {
         </div>
         <div class="HamburgerMenu">
           <div class="HamburgerIcon">|||</div>
-          <SearchBar placeholder="Search" data={todos()} />
+          {todos().length > 0 && (
+            <SearchBar
+              setShowTodoDetails={setShowTodoDetails}
+              placeholder="Search"
+              todos={todos()}
+            />
+          )}
           {/* <div class="TodosList">
             {todos().map((todo) => {
               if (todo.name !== "") {
@@ -65,6 +72,7 @@ export default function Home() {
             })}
           </div> */}
         </div>
+        {showTodoDetails() && <div>details ...</div>}
         {/* <div class="Title">Todoist</div>
 
         <div class="TodosContainer">
