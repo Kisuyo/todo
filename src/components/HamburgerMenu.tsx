@@ -1,7 +1,8 @@
 import { styled } from "solid-styled-components"
+import { JSXElement } from "solid-js"
 
 interface Props {
-  children: any
+  children: JSXElement
   active: boolean
   setActive: (active: boolean) => void
 }
