@@ -4,7 +4,7 @@ import { Todo } from "~/routes"
 interface Props {
   placeholder: string
   todos: Todo[]
-  setShowTodoDetails: (value: boolean) => void
+  setShowTodoDetails: (value: number) => void
 }
 
 export default function SearchBar({
@@ -43,7 +43,7 @@ export default function SearchBar({
               return (
                 <div
                   onClick={() => {
-                    setShowTodoDetails(true)
+                    setShowTodoDetails(value.id)
                   }}
                   class="SearchResult"
                 >

@@ -69,12 +69,19 @@ function GlobalStyles() {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+        align-items: center;
         height: 100vh;
+        gap: 100px;
       }
       .TitleContainer {
-        margin-right: 500px;
-        margin-top: 400px;
+        margin-right: 300px;
       }
+      @media (max-width: 768px) {
+        .TitleContainer {
+          margin-right: 100px;
+        }
+      }
+      
       .TodosContainer {
         width: 600px;
         /* margin-bottom: 200px; */
@@ -195,16 +202,11 @@ function GlobalStyles() {
         opacity: 60%;
       }
       .Title {
-        font-size: 184px;
+        font-size: clamp(2rem, 10vw, 20rem);
         color: #F5DFFF;
         -webkit-text-stroke: 2px rgba(45, 15, 55, 50%);
         font-family: 'Krub';
         font-weight: bold;
-        width: 600px;
-        display: flex;
-        justify-content: center;
-        margin-right: 100px;
-        margin-bottom: 25px;
       }
       .HamburgerMenu {
         background-color: #c9a5c979;
@@ -230,8 +232,8 @@ function GlobalStyles() {
      border: 0;
     font-size: 18px;
     padding: 15px;
-    width: 200px;
     border-radius: 5px;
+      min-width: 100px;
       }
       .SearchInput:focus {
         outline: none;
@@ -241,7 +243,7 @@ function GlobalStyles() {
       }
       .SearchResults {
         display: grid;
-        background-color: white;
+        background-color: #b5b5b5;
         overflow: hidden;
         margin-top: 20px;
 
@@ -249,7 +251,11 @@ function GlobalStyles() {
       .SearchResult {
         padding: 20px;
         margin-top: 5px;
-
+        background-color: white;
+        border: 1px solid black
+      }
+      .SearchResult:hover {
+        opacity: 80%;
       }
     }
 

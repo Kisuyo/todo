@@ -16,7 +16,7 @@ export interface Todo {
 export default function Home() {
   const [todos, setTodos] = createSignal<Todo[]>([])
   const [input, setInput] = createSignal("")
-  const [showTodoDetails, setShowTodoDetails] = createSignal(false)
+  const [showTodoDetails, setShowTodoDetails] = createSignal()
 
   // const [expandedTodoInput, setExpandedTodoInput] = createSignal<number>(0)
   // const [note, setNote] = createSignal<string[]>([])
@@ -72,7 +72,7 @@ export default function Home() {
             })}
           </div> */}
         </div>
-        {showTodoDetails() && <div>details ...</div>}
+        {todos().map((value) => {})}
         {/* <div class="Title">Todoist</div>
 
         <div class="TodosContainer">
