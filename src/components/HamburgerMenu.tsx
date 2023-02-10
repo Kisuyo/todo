@@ -3,7 +3,7 @@ import { styled } from "solid-styled-components"
 export default function HamburgerMenu({ children }) {
   return (
     <HamburgerMenuWrapper>
-      <div>testing</div>
+      <div>{children}</div>
     </HamburgerMenuWrapper>
   )
 }
