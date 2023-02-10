@@ -1,9 +1,21 @@
 import { styled } from "solid-styled-components"
 
-export default function HamburgerMenu({ children }) {
+interface Props {
+  children: any
+  active: boolean
+  setActive: (active: boolean) => void
+}
+
+export default function HamburgerMenu({ children, active, setActive }: Props) {
   return (
-    <HamburgerMenuWrapper>
-      <div>{children}</div>
+    <HamburgerMenuWrapper
+      onClick={() => {
+        setActive(true)
+      }}
+    >
+      {!active && <div>not active</div>}
+      {active && <div>active</div>}
+      {/* <img src="menu.svg" /> */}
     </HamburgerMenuWrapper>
   )
 }

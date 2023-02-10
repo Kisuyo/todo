@@ -7,6 +7,7 @@ specifiers:
   '@types/styled-components': ^5.1.26
   babel-plugin-solid-styled: ^0.6.3
   prisma: ^4.9.0
+  solid-feather-icons: ^0.1.4
   solid-js: ^1.6.9
   solid-start: ^0.2.15
   solid-start-node: ^0.2.15
@@ -22,6 +23,7 @@ dependencies:
   '@solidjs/meta': 0.28.2_solid-js@1.6.9
   '@solidjs/router': 0.7.0_solid-js@1.6.9
   '@supabase/supabase-js': 2.5.0
+  solid-feather-icons: 0.1.4
   solid-js: 1.6.9
   solid-start: 0.2.17_55umyvmfaswzxpylft3tvr3dvm
   solid-styled: 0.7.5_3qgza6kmmnz4kp2k2nuuudjnzy
@@ -2931,6 +2933,10 @@ packages:
       '@polka/url': 1.0.0-next.21
       mrmime: 1.0.1
       totalist: 3.0.0
+
+  /solid-feather-icons/0.1.4:
+    resolution: {integrity: sha512-GRSvIOwKC7h23vi+xdpnw3qrOVZlE4UyD10tiJcybbzp31Csegj7tsob32uX8pJsyLkV0P6quQviAaI+ipJx/Q==}
+    dev: false
 
   /solid-js/1.6.9:
     resolution: {integrity: sha512-kV3fMmm+1C2J95c8eDOPKGfZHnuAkHUBLG4hX1Xu08bXeAIPqmxuz/QdH3B8SIdTp3EatBVIyA6RCes3hrGzpg==}

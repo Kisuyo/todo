@@ -39,7 +39,10 @@ export default function Home() {
         <TitleContainer>
           <Title>Not Todoist</Title>
         </TitleContainer>
-        <HamburgerMenu>
+        <HamburgerMenu
+          active={showHamburgerMenu()}
+          setActive={setShowHamburgerMenu}
+        >
           <div>testing</div>
           {/* <div class="HamburgerIcon">|||</div>
           {todos().length > 0 && (

@@ -18,6 +18,7 @@
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.7.0",
     "@supabase/supabase-js": "^2.5.0",
+    "solid-feather-icons": "^0.1.4",
     "solid-js": "^1.6.9",
     "solid-start": "^0.2.15",
     "solid-styled": "^0.7.5",
