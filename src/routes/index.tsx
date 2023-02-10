@@ -1,6 +1,8 @@
 import { createClient } from "@supabase/supabase-js"
 import { createEffect, createSignal } from "solid-js"
-import SearchBar from "~/components/searchBar"
+import { styled } from "solid-styled-components"
+import HamburgerMenu from "~/components/HamburgerMenu"
+import SearchBar from "~/components/SearchBar"
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -17,6 +19,7 @@ export default function Home() {
   const [todos, setTodos] = createSignal<Todo[]>([])
   const [input, setInput] = createSignal("")
   const [showTodoDetails, setShowTodoDetails] = createSignal()
+  const [showHamburgerMenu, setShowHamburgerMenu] = createSignal(false)
 
   // const [expandedTodoInput, setExpandedTodoInput] = createSignal<number>(0)
   // const [note, setNote] = createSignal<string[]>([])
@@ -32,20 +35,22 @@ export default function Home() {
 
   return (
     <>
-      <div class="TodosPage">
-        <div class="TitleContainer">
-          <div class="Title">Todoist</div>
-        </div>
-        <div class="HamburgerMenu">
-          <div class="HamburgerIcon">|||</div>
+      <PageWrapper>
+        <TitleContainer>
+          <Title>Not Todoist</Title>
+        </TitleContainer>
+        <HamburgerMenu>
+          <div>testing</div>
+          {/* <div class="HamburgerIcon">|||</div>
           {todos().length > 0 && (
             <SearchBar
               setShowTodoDetails={setShowTodoDetails}
               placeholder="Search"
               todos={todos()}
             />
-          )}
-          {/* <div class="TodosList">
+          )} */}
+        </HamburgerMenu>
+        {/* <div class="TodosList">
             {todos().map((todo) => {
               if (todo.name !== "") {
                 return (
@@ -71,8 +76,7 @@ export default function Home() {
               }
             })}
           </div> */}
-        </div>
-        {todos().map((value) => {})}
+        {/* {todos().map((value) => {})} */}
         {/* <div class="Title">Todoist</div>
 
         <div class="TodosContainer">
@@ -99,7 +103,28 @@ export default function Home() {
             </button>
           </div>
         </div> */}
-      </div>
+      </PageWrapper>
     </>
   )
 }
+
+const Title = styled("div")`
+  font-size: clamp(2rem, 10vw, 20rem);
+  color: #f5dfff;
+  -webkit-text-stroke: 2px rgba(45, 15, 55, 50%);
+  font-family: "Krub";
+  font-weight: bold;
+`
+
+const TitleContainer = styled("div")`
+  margin-right: 300px;
+`
+
+const PageWrapper = styled("div")`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  gap: 100px;
+`

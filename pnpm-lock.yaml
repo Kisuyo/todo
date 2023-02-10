@@ -11,6 +11,7 @@ specifiers:
   solid-start: ^0.2.15
   solid-start-node: ^0.2.15
   solid-styled: ^0.7.5
+  solid-styled-components: ^0.28.5
   styled-components: ^5.3.6
   typescript: ^4.9.4
   undici: ^5.15.1
@@ -24,6 +25,7 @@ dependencies:
   solid-js: 1.6.9
   solid-start: 0.2.17_55umyvmfaswzxpylft3tvr3dvm
   solid-styled: 0.7.5_3qgza6kmmnz4kp2k2nuuudjnzy
+  solid-styled-components: 0.28.5_solid-js@1.6.9
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
   undici: 5.16.0
   vite-plugin-solid-styled: 0.7.5_5sbsxieawz6kqusdukyawo5tku
@@ -2415,6 +2417,14 @@ packages:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
 
+  /goober/2.1.12_csstype@3.1.1:
+    resolution: {integrity: sha512-yXHAvO08FU1JgTXX6Zn6sYCUFfB/OJSX8HHjDSgerZHZmFKAb08cykp5LBw5QnmyMcZyPRMqkdyHUSSzge788Q==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dependencies:
+      csstype: 3.1.1
+    dev: false
+
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
 
@@ -3005,6 +3015,16 @@ packages:
       wait-on: 6.0.1_debug@4.3.4
     transitivePeerDependencies:
       - supports-color
+
+  /solid-styled-components/0.28.5_solid-js@1.6.9:
+    resolution: {integrity: sha512-vwTcdp76wZNnESIzB6rRZ3U55NgcSAQXCiiRIiEFhxTFqT0bEh/warNT1qaRZu4OkAzrBkViOngF35ktI8sc4A==}
+    peerDependencies:
+      solid-js: ^1.4.4
+    dependencies:
+      csstype: 3.1.1
+      goober: 2.1.12_csstype@3.1.1
+      solid-js: 1.6.9
+    dev: false
 
   /solid-styled/0.7.5_3qgza6kmmnz4kp2k2nuuudjnzy:
     resolution: {integrity: sha512-7XGQ/nZByGInw+C5tcsfHv7SFdNNcCdsferYJhKcwAm26FLYiRUhhTpBSV+6EnjNiNOPPpKEjk1OJ5SyDUF7UQ==}
