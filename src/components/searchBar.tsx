@@ -1,17 +1,13 @@
 import { createSignal } from "solid-js"
 import { Todo } from "~/routes"
 
-interface Props {
-  placeholder: string
-  todos: Todo[]
-  setShowTodoDetails: (value: number) => void
-}
+// interface Props {
+//   placeholder: string
+//   todos: Todo[]
+//   // setShowTodoDetails: (value: number) => void
+// }
 
-export default function SearchBar({
-  placeholder,
-  todos,
-  setShowTodoDetails,
-}: Props) {
+export default function SearchBar({ placeholder, todos }) {
   const [filteredTodos, setFilteredTodos] = createSignal(todos)
   console.log(todos, "todos")
 
@@ -34,20 +30,25 @@ export default function SearchBar({
             placeholder={placeholder}
             onInput={handleFilter}
           />
-          <div class="SearchIcon">Icon</div>
+          <div class="SearchIcon">
+            <img src="search.svg" alt="Search" />
+          </div>
         </div>
         {filteredTodos().length != 0 && (
           <div class="SearchResults">
             {filteredTodos().map((value) => {
               //@ts-ignore
               return (
-                <div
-                  onClick={() => {
-                    setShowTodoDetails(value.id)
-                  }}
-                  class="SearchResult"
-                >
-                  {value.name}
+                <div class="SearchResultContainer">
+                  <div
+                    onClick={() => {
+                      // setShowTodoDetails(value.id)
+                    }}
+                    class="SearchResult"
+                  >
+                    {value.name}
+                  </div>
+                  {/* <div class="removeTodo">hi</div> */}
                 </div>
               )
             })}

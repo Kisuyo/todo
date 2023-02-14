@@ -24,7 +24,7 @@ function GlobalStyles() {
         /* background-color: red; */
         padding: 0px;
         margin: 0;
-        background-color: #dbdaf2;
+        background: linear-gradient(90deg , #410076, #8820dd)
       }
 
       a {
@@ -65,16 +65,16 @@ function GlobalStyles() {
           max-width: none;
         }
       }
-      .TodosPage {
+      .PageWrapper {
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-        height: 100vh;
-        gap: 100px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  /* align-items: center; */
+  height: 100vh;
+  gap: 100px;
       }
       .TitleContainer {
-        margin-right: 300px;
+        /* margin-right: 300px; */
       }
       @media (max-width: 768px) {
         .TitleContainer {
@@ -193,11 +193,7 @@ function GlobalStyles() {
       .DeleteTodoButton:hover {
         opacity: 50%;
       }
-      .XImage {
-        /* display: flex;
-        justify-content: center;
-        margin: 0; */
-      }
+
       .CheckImage {
         opacity: 60%;
       }
@@ -208,54 +204,109 @@ function GlobalStyles() {
         font-family: 'Krub';
         font-weight: bold;
       }
-      .HamburgerMenu {
-        background-color: #c9a5c979;
-        width: 20%;
-        height: 100vh;
+
+      .HamburgerMenuWrapperActive {
+        background-color: #7474749f;
+       height: 100vh;
+       width: 400px;
+       transition: 1s;
       }
+      @media (max-width: 768px) {
+        .HamburgerMenuWrapperActive {
+          min-width: 100%;
+          width: 100vw;
+        }
+        .Title {
+          /* display: none; */
+        }
+        .PageWrapper {
+          gap: 0;
+        }
+        .SearchBarContainer {
+          display: flex;
+          flex-direction: column;
+        }
+        .SearchResults {
+          width: 100vw;
+        }
+      }
+
+      .HamburgerMenuWrapper {
+        height: 0px;
+        width: 0%;
+        /* display: none; */
+        transition: 1s;
+      }
+
       .HamburgerIcon {
-        padding: 40px;
-        border-bottom: 2px solid white;
+        padding: 25px;
+  margin: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #484848;
+  border-radius: 15px;
       }
+
       .SearchBarContainer {
-        margin: 40px;
+        padding: 40px;
+        padding-top: 125px;
+        /* width: 100%; */
+        height: 50%;
       }
       .SearchInputContainer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: white;
-        border-radius: 5px;
+        background-color: #ffffff;
+        border-radius: 2px;
       }
       .SearchInput {
-        background-color: white;
+        background: none;
      border: 0;
     font-size: 18px;
     padding: 15px;
-    border-radius: 5px;
-      min-width: 100px;
+    width: 100%;
       }
       .SearchInput:focus {
         outline: none;
       }
       .SearchIcon {
+        /* filter: brightness(0) invert(1); */
         padding: 15px;
       }
       .SearchResults {
-        display: grid;
-        background-color: #b5b5b5;
-        overflow: hidden;
-        margin-top: 20px;
+        margin-top: 5px;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 2px;
+      }
+      .SearchResults::-webkit-scrollbar {
+    display: none;
+}
+      .SearchResultContainer {
+        display: flex;
 
       }
       .SearchResult {
-        padding: 20px;
-        margin-top: 5px;
-        background-color: white;
-        border: 1px solid black
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: black;
+  white-space:nowrap;
+         overflow:hidden;
+        text-overflow:ellipsis;
       }
       .SearchResult:hover {
-        opacity: 80%;
+        /* opacity: 80%; */
+        background-color: #d3d3d3;
       }
     }
 
