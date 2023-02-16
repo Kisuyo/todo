@@ -67,18 +67,17 @@ function GlobalStyles() {
       }
       .PageWrapper {
         display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  /* align-items: center; */
-  height: 100vh;
-  gap: 100px;
+        flex-direction: row-reverse;
+        justify-content: center;
+        /* align-items: center; */
+        height: 100vh;
+        gap: 100px;
       }
       .MainWrapper {
         display: flex;
         justify-self: center;
         align-self: center;
         flex-direction: column;
-        margin-right: 200px;
       }
       .TitleContainer {
         /* margin-right: 300px; */
@@ -163,7 +162,7 @@ function GlobalStyles() {
       }
       .TodoInputExpanded {
         border: 4px solid rgba(0, 0, 0, 50%);
-        padding: 20px; 
+        padding: 20px;
         width: 300px;
         border-radius: 40px;
         display: flex;
@@ -243,8 +242,6 @@ function GlobalStyles() {
           gap: 0;
         }
         .SearchBarContainer {
-          display: flex;
-          flex-direction: column;
         }
         .SearchResults {
           width: 100vw;
@@ -260,19 +257,18 @@ function GlobalStyles() {
 
       .HamburgerIcon {
         padding: 25px;
-  margin: 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #484848;
-  border-radius: 15px;
+        margin: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #484848;
+        border-radius: 15px;
       }
-
       .SearchBarContainer {
-        padding: 40px;
-        padding-top: 125px;
-        /* width: 100%; */
-        height: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
       }
       .SearchInputContainer {
         display: flex;
@@ -297,39 +293,37 @@ function GlobalStyles() {
       }
       .SearchResults {
         margin-top: 5px;
-  width: 100%;
-  height: 300px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  overflow: hidden;
-  overflow-y: auto;
-  border-radius: 2px;
+        width: 100%;
+        height: 240px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        overflow: hidden;
+        overflow-y: auto;
+        border-radius: 2px;
       }
       .SearchResults::-webkit-scrollbar {
-    display: none;
-}
+        display: none;
+      }
       .SearchResultContainer {
         display: flex;
-
       }
       .SearchResult {
         padding-left: 20px;
         padding-right: 20px;
         width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  color: black;
-  white-space:nowrap;
-         overflow:hidden;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        color: black;
+        white-space:nowrap;
+        overflow:hidden;
         text-overflow:ellipsis;
       }
-      .SearchResultContainer:hover {
-        /* opacity: 80%; */
-        background-color: #d3d3d3;
-      }
+      // .SearchResultContainer:hover {
+      //   /* opacity: 80%; */
+      //   background-color: #d3d3d3;
+      // }
       .RemoveTodo {
-
       }
     }
 

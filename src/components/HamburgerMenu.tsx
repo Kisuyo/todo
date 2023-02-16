@@ -1,4 +1,4 @@
-import { createSignal, JSXElement } from "solid-js"
+import { createSignal } from "solid-js"
 import SearchBar from "~/components/SearchBar"
 
 const [showHamburgerMenu, setShowHamburgerMenu] = createSignal(false)
@@ -23,8 +23,6 @@ export default function HamburgerMenu(props) {
               props.setShowTitle(false)
             } else if (window.innerWidth > 768) {
               props.setShowTitle(true)
-              console.log("this runs")
-              console.log(window.innerWidth)
             }
           }
         }}

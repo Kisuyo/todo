@@ -1,25 +1,20 @@
 import { createSignal } from "solid-js"
-import { createEffect } from "solid-js/types/reactive/signal"
 import { Todo } from "~/routes"
 
-// interface Props {
-//   placeholder: string
-//   todos: Todo[]
-//   // setShowTodoDetails: (value: number) => void
-// }
+interface Props {
+  todos: Todo[]
+}
 
-export default function SearchBar({ placeholder, todos, database }) {
-  const [filteredTodos, setFilteredTodos] = createSignal(todos)
-  // console.log(todos, "todos")
-  console.log(database)
+export default function SearchBar(props: Props) {
+  const [searchedTodos, setSearchedTodos] = createSignal(props.todos)
+  const [inFocus, setInFocus] = createSignal(false)
 
   const handleFilter = (event) => {
     const input = event.target.value
-    const filteredTodos = todos.filter((todo) => {
+    const searchedTodos = props.todos.filter((todo) => {
       return todo.name.toLowerCase().includes(input.toLowerCase())
     })
-    console.log(filteredTodos, "filteredTodos")
-    setFilteredTodos(filteredTodos)
+    setSearchedTodos(searchedTodos)
   }
 
   return (
@@ -29,16 +24,22 @@ export default function SearchBar({ placeholder, todos, database }) {
           <input
             class="SearchInput"
             type="text"
-            placeholder={placeholder}
+            placeholder={"Search"}
             onInput={handleFilter}
+            onFocus={() => {
+              setInFocus(true)
+            }}
+            onFocusOut={() => {
+              setInFocus(false)
+            }}
           />
           <div class="SearchIcon">
             <img src="search.svg" alt="Search" />
           </div>
         </div>
-        {filteredTodos().length != 0 && (
+        {searchedTodos().length != 0 && (
           <div class="SearchResults">
-            {filteredTodos().map((value) => {
+            {searchedTodos().map((value) => {
               //@ts-ignore
               return (
                 <div class="SearchResultContainer">
@@ -51,21 +52,21 @@ export default function SearchBar({ placeholder, todos, database }) {
                     {value.name}
                   </div>
                   <div class="RemoveTodo">
-                    <button
-                      class="DeleteTodoButton"
-                      onClick={async () => {
-                        const { error } = await database
-                          .from("todos")
-                          .delete()
-                          .match({ Note: value })
-                        setNote(note().filter((t) => t !== value))
-                        if (error) {
-                          console.log(error)
-                        }
-                      }}
+                    {/* <button
+                      class="RemoveTodo"
+                      // onClick={async () => {
+                      //   const { error } = await database
+                      //     .from("todos")
+                      //     .delete()
+                      //     .match({ Note: value })
+                      //   setNote(note().filter((t) => t !== value))
+                      //   if (error) {
+                      //     console.log(error)
+                      //   }
+                      // }}
                     >
                       <img src="x.svg" alt="X" class="XImage" />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               )
