@@ -24,7 +24,7 @@ function GlobalStyles() {
         /* background-color: red; */
         padding: 0px;
         margin: 0;
-        background: linear-gradient(90deg , #410076, #8820dd)
+        background-color: #0d0d0d;
       }
 
       a {
@@ -73,6 +73,13 @@ function GlobalStyles() {
   height: 100vh;
   gap: 100px;
       }
+      .MainWrapper {
+        display: flex;
+        justify-self: center;
+        align-self: center;
+        flex-direction: column;
+        margin-right: 200px;
+      }
       .TitleContainer {
         /* margin-right: 300px; */
       }
@@ -83,8 +90,7 @@ function GlobalStyles() {
       }
 
       .TodosContainer {
-        width: 600px;
-        /* margin-bottom: 200px; */
+        width: 100%;
       }
       .TodosList {
         display: flex;
@@ -97,28 +103,33 @@ function GlobalStyles() {
         justify-content: center;
         gap: 30px;
         margin-bottom: 30px;
+        background-color: white;
+        border-radius: 2px;
+      }
+      .RemoveTodo {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        opacity: 80%;
       }
       .Input {
         appearance: none;
-        width: 400px;
-        border: 4px solid rgba(34, 10, 38, 50%);
+        width: 100%;
         padding: 20px;
         border-radius: 40px;
-        background-color: #f8e4ff;
-        opacity: 65%;
         outline: none;
+        border: none;
+        font-size: 25px;
       }
       .TodoSubmit {
         width: 80px;
         height: 80px;
-        border-radius: 100px;
-        border: 2px solid rgba(34, 10, 38, 50%);
-        /* background-color: #63ff6355; */
-        background-color: #f8e4ff;
-        opacity: 80%;
+        border: none;
+        background-color: white;
+        user-select: none;
       }
       .TodoSubmit:hover {
-        opacity: 50%;
+        opacity: 70%;
       }
       .TodoInput {
         border: 4px solid rgba(0, 0, 0, 50%);
@@ -152,7 +163,7 @@ function GlobalStyles() {
       }
       .TodoInputExpanded {
         border: 4px solid rgba(0, 0, 0, 50%);
-        padding: 20px;
+        padding: 20px; 
         width: 300px;
         border-radius: 40px;
         display: flex;
@@ -198,19 +209,22 @@ function GlobalStyles() {
         opacity: 60%;
       }
       .Title {
-        font-size: clamp(2rem, 10vw, 20rem);
-        color: #F5DFFF;
-        -webkit-text-stroke: 2px rgba(45, 15, 55, 50%);
+        font-size: clamp(4rem, 8vw, 20rem);
+        color: #ffffff;
+        -webkit-text-stroke: 2px rgba(0, 0, 0, 80%);
         font-family: 'Krub';
         font-weight: bold;
+        text-align: center;
+        user-select: none;
       }
 
       .HamburgerMenuWrapperActive {
-        background-color: #7474749f;
+        background-color: #1616169f;
        height: 100vh;
        width: 400px;
        transition: 1s;
       }
+
       @media (max-width: 768px) {
         .HamburgerMenuWrapperActive {
           min-width: 100%;
@@ -218,6 +232,12 @@ function GlobalStyles() {
         }
         .Title {
           /* display: none; */
+        }
+        .PageWrapper {
+          justify-content: center;
+        }
+        .MainWrapper {
+          margin: 0;
         }
         .PageWrapper {
           gap: 0;
@@ -304,9 +324,12 @@ function GlobalStyles() {
          overflow:hidden;
         text-overflow:ellipsis;
       }
-      .SearchResult:hover {
+      .SearchResultContainer:hover {
         /* opacity: 80%; */
         background-color: #d3d3d3;
+      }
+      .RemoveTodo {
+
       }
     }
 

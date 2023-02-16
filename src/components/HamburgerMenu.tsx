@@ -5,7 +5,7 @@ const [showHamburgerMenu, setShowHamburgerMenu] = createSignal(false)
 
 export default function HamburgerMenu(props) {
   return (
-    <div>
+    <div class="HamburgerWrapper">
       <div
         class="HamburgerIcon"
         onClick={() => {
@@ -23,6 +23,8 @@ export default function HamburgerMenu(props) {
               props.setShowTitle(false)
             } else if (window.innerWidth > 768) {
               props.setShowTitle(true)
+              console.log("this runs")
+              console.log(window.innerWidth)
             }
           }
         }}
@@ -42,6 +44,7 @@ export default function HamburgerMenu(props) {
               // setShowTodoDetails={setShowTodoDetails}
               placeholder="Search"
               todos={props.data}
+              database={props.database}
             />
           )}
         </div>

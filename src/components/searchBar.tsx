@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js"
+import { createEffect } from "solid-js/types/reactive/signal"
 import { Todo } from "~/routes"
 
 // interface Props {
@@ -7,7 +8,7 @@ import { Todo } from "~/routes"
 //   // setShowTodoDetails: (value: number) => void
 // }
 
-export default function SearchBar({ placeholder, todos }) {
+export default function SearchBar({ placeholder, todos, database }) {
   const [filteredTodos, setFilteredTodos] = createSignal(todos)
   console.log(todos, "todos")
 
@@ -48,7 +49,9 @@ export default function SearchBar({ placeholder, todos }) {
                   >
                     {value.name}
                   </div>
-                  {/* <div class="removeTodo">hi</div> */}
+                  <div class="RemoveTodo">
+                    <img src="x.svg" alt="REMOVE" />
+                  </div>
                 </div>
               )
             })}

@@ -35,36 +35,43 @@ export default function Home() {
   return (
     <>
       <div class="PageWrapper">
-        <div>
-          {showTitle() && <div class="Title">Not Todoist</div>}
+        {showTitle() && (
+          <div class="MainWrapper">
+            <div class="Title">NOT TODOIST</div>
 
-          {/* <div class="TodosContainer">
-            <div class="InputContainer">
-              <input
-                class="Input"
-                id="note"
-                type="text"
-                onChange={(e) => setInput(e.currentTarget.value)}
-              />
-              <button
-                class="TodoSubmit"
-                onClick={async () => {
-                  const resp = await supabase
-                    .from("todos")
-                    .insert({ name: input() })
-                    .select()
-                  if (resp?.data) {
-                    setTodos([...todos(), resp.data[0]])
-                  }
-                }}
-              >
-                <img src="check.svg" alt="check mark" class="CheckImage" />
-              </button>
+            <div class="TodosContainer">
+              <div class="InputContainer">
+                <input
+                  class="Input"
+                  placeholder="Submit a Todo"
+                  id="note"
+                  type="text"
+                  onChange={(e) => setInput(e.currentTarget.value)}
+                />
+                <button
+                  class="TodoSubmit"
+                  onClick={async () => {
+                    const resp = await supabase
+                      .from("todos")
+                      .insert({ name: input() })
+                      .select()
+                    if (resp?.data) {
+                      setTodos([...todos(), resp.data[0]])
+                    }
+                  }}
+                >
+                  <img src="check.svg" alt="check mark" class="CheckImage" />
+                </button>
+              </div>
             </div>
-          </div> */}
-        </div>
+          </div>
+        )}
         {todos().length != 0 && (
-          <HamburgerMenu data={todos()} setShowTitle={setShowTitle} />
+          <HamburgerMenu
+            data={todos()}
+            setShowTitle={setShowTitle}
+            database={supabase}
+          />
         )}
         {/* <div class="HamburgerIcon">|||</div>
         {todos().length > 0 && (
