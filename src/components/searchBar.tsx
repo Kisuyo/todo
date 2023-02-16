@@ -10,7 +10,8 @@ import { Todo } from "~/routes"
 
 export default function SearchBar({ placeholder, todos, database }) {
   const [filteredTodos, setFilteredTodos] = createSignal(todos)
-  console.log(todos, "todos")
+  // console.log(todos, "todos")
+  console.log(database)
 
   const handleFilter = (event) => {
     const input = event.target.value
@@ -50,7 +51,21 @@ export default function SearchBar({ placeholder, todos, database }) {
                     {value.name}
                   </div>
                   <div class="RemoveTodo">
-                    <img src="x.svg" alt="REMOVE" />
+                    <button
+                      class="DeleteTodoButton"
+                      onClick={async () => {
+                        const { error } = await database
+                          .from("todos")
+                          .delete()
+                          .match({ Note: value })
+                        setNote(note().filter((t) => t !== value))
+                        if (error) {
+                          console.log(error)
+                        }
+                      }}
+                    >
+                      <img src="x.svg" alt="X" class="XImage" />
+                    </button>
                   </div>
                 </div>
               )
