@@ -79,42 +79,6 @@ export default function Home() {
         {todos().length > 0 && (
           <SearchBar todos={todos()} setTodos={setTodos} db={supabase} />
         )}
-        {/* <div class="HamburgerIcon">|||</div>
-        {todos().length > 0 && (
-          <SearchBar
-            // setShowTodoDetails={setShowTodoDetails}
-            placeholder="Search"
-            todos={todos()}
-          />
-        )} */}
-        {/* <div class="TodosList">
-            {todos().map((todo) => {
-              if (todo.name !== "") {
-                return (
-                  <div class="Todo">
-                    <span class="TodoContent">{todo.name}</span>
-                    <button
-                      class="DeleteTodoButton"
-                      onClick={async () => {
-                        // const { error } = await supabase
-                        //   .from("todos")
-                        //   .delete()
-                        //   .match({ Note: todo })
-                        // setNote(note().filter((t) => t !== todo))
-                        // if (error) {
-                        //   console.log(error)
-                        // }
-                      }}
-                    >
-                      <img src="x.svg" alt="X" class="XImage" />
-                    </button>
-                  </div>
-                )
-              }
-            })}
-          </div> */}
-        {/* {todos().map((value) => {})} */}
-        {/* <div class="Title">Todoist</div> */}
       </div>
     </>
   )

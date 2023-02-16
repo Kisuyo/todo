@@ -1,5 +1,5 @@
 import { SupabaseClient } from "@supabase/supabase-js"
-import { createEffect, createSignal } from "solid-js"
+import { createEffect, createMemo, createSignal } from "solid-js"
 import { Todo } from "~/routes"
 
 interface Props {
@@ -12,11 +12,9 @@ export default function SearchBar(props: Props) {
   const [searchedTodos, setSearchedTodos] = createSignal(props.todos)
   const [inFocus, setInFocus] = createSignal(false)
 
-  // createEffect(() => {
-  //   if (props.todos) {
-  //     setSearchedTodos(props.todos)
-  //   }
-  // })
+  const memo = createMemo(() => {
+    setSearchedTodos(props.todos)
+  })
 
   const handleFilter = (event) => {
     const input = event.target.value
@@ -68,10 +66,9 @@ export default function SearchBar(props: Props) {
                         setSearchedTodos(
                           props.todos.filter((t) => t.id !== value.id)
                         )
-                        // props.setTodos(
-                        //   props.todos.filter((t) => t.id !== value.id)
-                        // )
-                        // console.log("success!")
+                        props.setTodos(
+                          props.todos.filter((t) => t.id !== value.id)
+                        )
                       }}
                     >
                       <img src="x.svg" alt="X" class="XImage" />
