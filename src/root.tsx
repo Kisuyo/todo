@@ -105,12 +105,6 @@ function GlobalStyles() {
         background-color: white;
         border-radius: 2px;
       }
-      .RemoveTodo {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        opacity: 80%;
-      }
       .Input {
         appearance: none;
         width: 100%;
@@ -324,6 +318,13 @@ function GlobalStyles() {
       //   background-color: #d3d3d3;
       // }
       .RemoveTodo {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding-right: 5px;
+        opacity: 80%;
       }
     }
 

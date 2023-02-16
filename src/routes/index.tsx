@@ -76,7 +76,9 @@ export default function Home() {
             </div>
           </div>
         )}
-        {todos().length > 0 && <SearchBar todos={todos()} />}
+        {todos().length > 0 && (
+          <SearchBar todos={todos()} setTodos={setTodos} db={supabase} />
+        )}
         {/* <div class="HamburgerIcon">|||</div>
         {todos().length > 0 && (
           <SearchBar
